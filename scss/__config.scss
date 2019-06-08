@@ -1,0 +1,9 @@
+$primaryColor: white;
+$secondaryColor: rgba(184, 120, 120, 0.5);
+
+//Media Query Mixin
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}

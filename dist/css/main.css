@@ -1,0 +1,88 @@
+body {
+  font-family: "PT Sans Narrow", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: rgba(63, 7, 7, 0.5);
+  overflow: hidden; }
+
+ul,
+li {
+  list-style: none; }
+
+#content {
+  width: 70%;
+  height: 80vh;
+  margin: 10vh auto;
+  background: url("../images/backgroundBody.jpg") no-repeat center/cover; }
+
+#header {
+  width: 70%;
+  height: 100px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10%;
+  z-index: +2; }
+  #header .items {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; }
+    #header .items .item {
+      width: 120px;
+      height: 10vh;
+      text-align: center; }
+      #header .items .item .value1 {
+        background: green; }
+
+#taskArea {
+  margin: auto;
+  height: 70vh; }
+  #taskArea .given {
+    margin: auto;
+    width: 300px;
+    text-align: center; }
+    #taskArea .given h1 {
+      font-size: 100px;
+      color: #250b25;
+      border: 4px solid #531818;
+      border-radius: 10%; }
+  #taskArea .answerVariantsArea {
+    margin: 100px auto;
+    width: 450px;
+    background: rgba(63, 7, 7, 0.5);
+    border-radius: 10%;
+    text-align: center; }
+    #taskArea .answerVariantsArea .answers {
+      color: black;
+      padding: 0;
+      display: flex;
+      justify-content: space-around; }
+      #taskArea .answerVariantsArea .answers .answer {
+        color: #250b25;
+        margin: auto;
+        width: 65px;
+        border: 4px solid #531818; }
+      #taskArea .answerVariantsArea .answers :hover {
+        background: rgba(40, 4, 4, 0.5); }
+
+@media screen and (max-width: 768px) {
+  #taskArea .answerVariantsArea {
+    width: 85%; }
+    #taskArea .answerVariantsArea .answers .answer {
+      width: 45px; } }
+
+@media screen and (max-width: 500px) {
+  #content {
+    width: 80%; }
+  #taskArea {
+    margin-top: 100px; }
+    #taskArea .given {
+      width: 200px; }
+      #taskArea .given h1 {
+        font-size: 70px; }
+    #taskArea .answerVariantsArea {
+      margin: auto;
+      width: 80%; }
+      #taskArea .answerVariantsArea .answers .answer {
+        width: 32px; } }

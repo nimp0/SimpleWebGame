@@ -1,0 +1,135 @@
+//@import "mobile";
+
+$primaryColor: white;
+$secondaryColor: rgba(63, 7, 7, 0.5);
+
+body {
+  font-family: "PT Sans Narrow", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: $primaryColor;
+  background: $secondaryColor;
+  overflow: hidden;
+}
+
+ul,
+li {
+  list-style: none;
+}
+#content {
+  width: 70%;
+  height: 80vh;
+  margin: 10vh auto;
+  background: url("../images/backgroundBody.jpg") no-repeat center/cover;
+}
+
+#header {
+  width: 70%;
+  height: 100px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10%;
+  z-index: +2;
+
+  .items {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+
+    .item {
+      //background: yellow;
+      width: 120px;
+      height: 10vh;
+      text-align: center;
+
+      .value1 {
+        background: green;
+      }
+    }
+  }
+}
+
+#taskArea {
+  //background: blue;
+  margin: auto;
+  height: 70vh;
+
+  .given {
+    margin: auto;
+    width: 300px;
+    text-align: center;
+
+    h1 {
+      font-size: 100px;
+      color: rgb(37, 11, 37);
+      border: 4px solid rgb(83, 24, 24);
+      border-radius: 10%;
+    }
+  }
+
+  .answerVariantsArea {
+    margin: 100px auto;
+    width: 450px;
+    background: $secondaryColor;
+    border-radius: 10%;
+    text-align: center;
+
+    .answers {
+      color: black;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+
+      .answer {
+        color: rgb(37, 11, 37);
+        margin: auto;
+        width: 65px;
+        border: 4px solid rgb(83, 24, 24);
+      }
+      :hover {
+        background: darken($secondaryColor, 5%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #taskArea {
+    .answerVariantsArea {
+      width: 85%;
+
+      .answers {
+        .answer {
+          width: 45px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  #content {
+    width: 80%;
+  }
+  #taskArea {
+    margin-top: 100px;
+    .given {
+      width: 200px;
+
+      h1 {
+        font-size: 70px;
+      }
+    }
+
+    .answerVariantsArea {
+      margin: auto;
+      width: 80%;
+
+      .answers {
+        .answer {
+          width: 32px;
+        }
+      }
+    }
+  }
+}
