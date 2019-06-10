@@ -30,33 +30,45 @@ function DisplayMultiplication() {
 DisplayMultiplication();
 
 //Display AnswersVariants
-let answers = document.getElementsByClassName("answer");
-
+let answerBoxes = document.getElementsByClassName("answer");
+let answers = [];
 function DisplayAnswers() {
-  let answersToArray = Array.prototype.slice.call(answers, 0);
-  let randomIndex = GetRandomNumber(0, answers.length - 1);
-
-  for (let i = 0; i < answersToArray.length; i++) {
-    //Need to make not repeat the numbers
-    if (i === randomIndex) {
-      answersToArray[i].innerHTML = currRightAnswer;
-    } else {
-      if (currRightAnswer > 5) {
-        answersToArray[i].innerHTML = GetRandomNumber(
-          currRightAnswer - 5,
-          currRightAnswer + 5
-        );
-      } else {
-        answersToArray[i].innerHTML = GetRandomNumber(1, currRightAnswer + 5);
-      }
+  let randomIndexOfCorrect = GetRandomNumber(0, answerBoxes.length - 1);
+  const answers = [];
+  let indexer = 0;
+  while (answers.length <= 5) {
+    let answer = GetRandomNumber(currRightAnswer - 5, currRightAnswer + 5);
+    if (currRightAnswer <= 6) {
+      answer = GetRandomNumber(1, currRightAnswer + 5);
     }
+
+    if (answer == currRightAnswer) {
+      continue;
+    }
+    if (indexer == randomIndexOfCorrect) {
+      answers.push(currRightAnswer);
+      indexer++;
+      continue;
+    }
+    if (answers.includes(answer)) {
+      continue;
+    }
+
+    answers.push(answer);
+    indexer++;
+  }
+
+  let boxes = Array.prototype.slice.call(answerBoxes, 0);
+  for (let k in boxes) {
+    const v = boxes[k];
+    v.innerHTML = answers[k];
   }
 }
 DisplayAnswers();
 
 //Do GameLogic
-for (let i = 0; i < answers.length; i++) {
-  answers[i].addEventListener("click", DoGameLogic);
+for (let i = 0; i < answerBoxes.length; i++) {
+  answerBoxes[i].addEventListener("click", DoGameLogic);
 }
 let choosenAnswer;
 function DoGameLogic(e) {
